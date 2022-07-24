@@ -1,5 +1,6 @@
 #!/bin/bash
 
+TARGET_DOMAIN=$1
 
 #Creates tmux session and splits by 3
 tmux new -d -s reconnaince -n recon
@@ -9,9 +10,6 @@ tmux split-window -v -t recon
 #######################################################################
 ### Amass #############################################################
 #######################################################################
-tmux send-keys -t recon.0 "~/tools/amass.sh" C-m
-#tmux send-keys -t recon.1 "-/tools/recon_ng.sh" C-m
-#tmux send-keys -t recon.2 "~/tools/harverst.sh" C-m
-
-
-
+tmux send-keys -t recon.0 "/bin/bash ~/tools/amass.sh $TARGET_DOMAIN" C-m
+#tmux send-keys -t recon.1 "-/tools/recon_ng.sh $TARGET_DOMAIN" C-m
+#tmux send-keys -t recon.2 "~/tools/harverst.sh $TARGET_DOMAIN" C-m
