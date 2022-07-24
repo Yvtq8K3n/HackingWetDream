@@ -12,4 +12,4 @@ mkdir -p ~/Scripts
 #Enter Scripts folder
 cd ~/Scripts
 curl -L $TMUX_VPN -o vpn.sh
-curl -L https://github.com/Yvtq8K3n/HackingWetDream/archive/refs/heads/main.tar.gz | tar xz --wildcards "*/Scipts" --strip-components=3
+curl -L https://github.com/Yvtq8K3n/HackingWetDream/archive/refs/heads/main.tar.gz | tar xz --wildcards "*/Scripts/*" --strip-components 2
