@@ -1,0 +1,31 @@
+#!/bin/bash
+
+echo "##################################################################" >> info
+echo "### Network ######################################################" >> info
+echo "##################################################################" >> info
+echo $1 >> info
+echo "" >> info
+
+echo "##################################################################" >> info
+echo "### Enumeration ##################################################" >> info
+echo "##################################################################" >> info
+echo "nmap -sV --open -oA initial_scan $1" >> info
+echo "nmap -p- --open -oA tcp_scan $1" >> info
+echo "nmap -sC -p 22,80 -oA intrusive_scan $1" >> info
+echo "nmap -sV --script=http_enum -oA script_http_scan $1" >> info
+echo "" >> info
+
+echo "##################################################################" >> info
+echo "### Web Services #################################################" >> info
+echo "##################################################################" >> info
+echo "whatweb $1/domain" >> info
+echo "gobuster dir -u $1/domain --wordlist /usr/share/dirb/wordlists/common.txt -o service_enumeration" >> info
+echo "gobuster dir -u $1 -t 50 -w /usr/share/dirb/wordlists/common.txt -x .php,.html -o service_pages" >> info
+echo "" >> info
+
+echo "#################################################################" >> info
+echo "### Interesting Files ###########################################" >> info
+echo "#################################################################" >> info
+echo "domain/" >> info
+echo " - File1" >> info
+echo " - File2" >> info
