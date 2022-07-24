@@ -1,6 +1,6 @@
 #!/bin/bash
-TMUX_CORE="https://gist.githubusercontent.com/Yvtq8K3n/fb7b9590aca6a67b7a023d4faa4540b4/raw/b855fe0086ed0b849ba1845097b4481a7e034448/.tmux.conf"
-TMUX_VPN="https://gist.githubusercontent.com/Yvtq8K3n/fb7b9590aca6a67b7a023d4faa4540b4/raw/b855fe0086ed0b849ba1845097b4481a7e034448/vpn.sh"
+TMUX_CORE="https://gist.githubusercontent.com/Yvtq8K3n/fb7b9590aca6a67b7a023d4faa4540b4/raw/19d6531bd14da1443b0ef63866a506857161d42d/.tmux.conf"
+TMUX_VPN="https://gist.githubusercontent.com/Yvtq8K3n/fb7b9590aca6a67b7a023d4faa4540b4/raw/19d6531bd14da1443b0ef63866a506857161d42d/vpn.sh"
 GIT_CORE="https://github.com/Yvtq8K3n/HackingWetDream/archive/refs/heads/main.tar.gz"
 
 sudo apt -y update
