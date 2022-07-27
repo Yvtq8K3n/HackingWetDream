@@ -36,7 +36,8 @@ printf " -Retreiving all tool_scripts from GIT: ${GIT_CORE}\n"
 curl -s -L $GIT_CORE --fail --silent --show-error | tar xz --wildcards "*/tools/*" --strip-components 2
 
 printf " -Exporting tools folder to path\n"
-export PATH=$PATH:~/tools
+export PATH=$PATH:~/tools >> ~/.profile
+source ~/.profile
 
 printf " -Granting executable permission to all tools\n"
 chmod +x *
