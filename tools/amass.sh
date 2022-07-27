@@ -12,8 +12,8 @@ sudo mv go /usr/local/
 export PATH=$PATH:/usr/local/go/bin
 
 #Install amass
-sudo ap update -y
-sudo apt install amass -y
+go install -v github.com/OWASP/Amass/v3/...@master
+ln -s ~/go/bin/amass amass
 
 #Use amass
 amass enum -d $TARGET_DOMAIN
