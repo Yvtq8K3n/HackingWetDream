@@ -17,7 +17,7 @@ cp ~/scripts/* EPT
 #cd EPT && mkdir evidence logs scans scope tools
 #cd evidence && mkdir credentials data screenshots
 
-cd ../..
+cd ..
 cp ~/scripts/* IPT
 #cd IPT && mkdir evidence logs scans scope tools
 #cd evidence && mkdir credentials data screenshots

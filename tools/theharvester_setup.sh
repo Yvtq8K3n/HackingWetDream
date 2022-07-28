@@ -1,5 +1,8 @@
 #!/bin/bash
 
+#Sourcing profile
+source ~/.profile
+
 if ! command -v theharvester &> /dev/null
 then
     echo "TheHarvester not found, proceeding to install it"

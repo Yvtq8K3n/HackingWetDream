@@ -1,6 +1,9 @@
 #!/bin/bash
 cd ~/tools
 
+#Sourcing profile
+source ~/.profile
+
 if ! command -v amass &> /dev/null
 then
     echo "Amass not found, proceeding to install it"

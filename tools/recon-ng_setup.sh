@@ -1,5 +1,8 @@
 #!/bin/bash
 
+#Sourcing profile
+source ~/.profile
+
 if ! command -v recon-ng &> /dev/null
 then
     echo "Recon-ng not found, proceeding to install it"
