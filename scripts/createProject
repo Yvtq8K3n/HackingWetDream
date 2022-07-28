@@ -1,11 +1,11 @@
 #!/bin/bash
 
-if [ !  -d ~/Projects/ ]; then
+if [ !  -d ~/projects/ ]; then
    #Create root ~/Projects dir
    echo "Projects root dir not found, Creating..." 
-   mkdir ~/Projects
+   mkdir ~/projects
 fi
-cd ~/Projects/
+cd ~/projects/
 
 #Creating new investigation structure
 echo "Create folder for investation: $1"
@@ -13,12 +13,12 @@ mkdir $1
 cd $1
 mkdir EPT IPT
 
-cp ~/Scripts/startEnum EPT
+cp ~/scripts/* EPT
 #cd EPT && mkdir evidence logs scans scope tools
 #cd evidence && mkdir credentials data screenshots
 
 cd ../..
-cp /home/marquez/Scripts/startEnum IPT
+cp ~/scripts/* IPT
 #cd IPT && mkdir evidence logs scans scope tools
 #cd evidence && mkdir credentials data screenshots
 echo "Project succesfully created"
