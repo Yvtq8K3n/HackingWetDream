@@ -17,4 +17,11 @@ tmux send-keys -t recon.1 "/bin/bash ~/tools/recon-ng_setup.sh" C-m
 #######################################################################
 ### Executing commands ################################################
 #######################################################################
+tmux list-panes -F '#{session_name}:#{window_index}.#{pane_index}' -f reconnaince | xargs -I PANE tmux send-keys -t PANE 'source ~/.profile' C-m
+
+
+
+#######################################################################
+### Amass commands ####################################################
+#######################################################################
 tmux send-keys -t recon.0 "amass enum -d $TARGET_DOMAIN" C-m
