@@ -14,6 +14,7 @@ cd $1
 mkdir EPT IPT
 
 cp ~/scripts/* EPT
+cd EPT && mkdir templates
 #cd EPT && mkdir evidence logs scans scope tools
 #cd evidence && mkdir credentials data screenshots
 

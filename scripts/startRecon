@@ -1,27 +1,66 @@
 #!/bin/bash
 
+#######################################################################
+### READ API Configuration file #######################################
+#######################################################################
+function parse_yaml {
+   local prefix=$2
+   local s='[[:space:]]*' w='[a-zA-Z0-9_]*' fs=$(echo @|tr @ '\034')
+   sed -ne "s|^\($s\):|\1|" \
+        -e "s|^\($s\)\($w\)$s:$s[\"']\(.*\)[\"']$s\$|\1$fs\2$fs\3|p" \
+        -e "s|^\($s\)\($w\)$s:$s\(.*\)$s\$|\1$fs\2$fs\3|p"  $1 |
+   awk -F$fs '{
+      indent = length($1)/2;
+      vname[indent] = $2;
+      for (i in vname) {if (i > indent) {delete vname[i]}}
+      if (length($3) > 0) {
+         vn=""; for (i=0; i<indent; i++) {vn=(vn)(vname[i])("_")}
+         printf("%s%s%s=\"%s\"\n", "'$prefix'",vn, $2, $3);
+      }
+   }'
+}
+
+#Parse file into function to be converted as variables
+eval $(parse_yaml ~/config.yaml "API_")
+
+#######################################################################
+### Create tmux sessions ##############################################
+#######################################################################
 TARGET_DOMAIN=$1
 
 #Creates tmux session and splits by 3
-tmux new -d -s reconnaince -n recon
-tmux split-window -h -t recon
-tmux split-window -v -t recon
+#tmux new -d -s reconnaince -n recon
+#tmux split-window -h -t recon
+#tmux split-window -v -t recon
 
 #######################################################################
-### Install tools #####################################################
+### Install & Enable tools ############################################
 #######################################################################
-tmux send-keys -t recon.0 "/bin/bash ~/tools/amass_setup.sh" C-m
-tmux send-keys -t recon.1 "/bin/bash ~/tools/recon-ng_setup.sh" C-m
-#tmux send-keys -t recon.2 "~/tools/harverst.sh $TARGET_DOMAIN" C-m
-
-#######################################################################
-### Executing commands ################################################
-#######################################################################
-tmux list-panes -F '#{session_name}:#{window_index}.#{pane_index}' -f reconnaince | xargs -I PANE tmux send-keys -t PANE 'source ~/.profile' C-m
-
+#tmux send-keys -t recon.0 "/bin/bash ~/tools/amass_setup.sh" C-m
+#tmux send-keys -t recon.1 "/bin/bash ~/tools/recon-ng_setup.sh" C-m
+##tmux send-keys -t recon.2 "~/tools/harverst.sh $TARGET_DOMAIN" C-m
+#tmux list-panes -F '#{session_name}:#{window_index}.#{pane_index}' -f reconnaince | xargs -I PANE tmux send-keys -t PANE 'source ~/.profile' C-m
 
 
 #######################################################################
 ### Amass commands ####################################################
 #######################################################################
-tmux send-keys -t recon.0 "amass enum -d $TARGET_DOMAIN" C-m
+#tmux send-keys -t recon.0 "amass enum -d $TARGET_DOMAIN" C-m
+
+#######################################################################
+### Recon-ng commands #################################################
+#######################################################################
+sed "s/DOMAIN/$TARGET_DOMAIN/g" ~/templates/recon-ng.rc > templates/recon_ng.rc
+sed -i "s/API_BINARYEDGE/$API_BINARYEDGE/g" templates/recon_ng.rc
+sed -i "s/API_BING/$API_BING/g" templates/recon_ng.rc
+sed -i "s/API_BUILTWITH/$API_BUILTWITH/g" templates/recon_ng.rc
+sed -i "s/API_CENSYSIOID/$API_CENSYSIOID/g" templates/recon_ng.rc
+sed -i "s/API_CENSYSIOSECRET/$API_CENSYSIOSECRET/g" templates/recon_ng.rc
+sed -i "s/API_SHODAN/$API_SHODAN/g" templates/recon_ng.rc
+sed -i "s/API_SPYSE/$API_SPYSE/g" templates/recon_ng.rc
+
+#######################################################################
+##commands #################################################
+#######################################################################
+
+
