@@ -13,6 +13,7 @@ printf "\n#Creating initial stucture\n"
 mkdir -p ~/projects
 mkdir -p ~/scripts
 mkdir -p ~/tools
+mkdir -p ~/templates
 
 printf " -Retreiving tmux conf from: ${TMUX_CORE}\n"
 curl -L $TMUX_CORE -o ~/.tmux.conf --fail --silent --show-error
