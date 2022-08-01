@@ -41,3 +41,9 @@ source ~/.profile
 
 printf " -Granting executable permission to all tools\n"
 chmod +x *
+
+#Entering templates folder
+printf "\n#Entering tools folder\n"
+cd ~/templates
+printf " -Retreiving all tool_templates from GIT: ${GIT_CORE}\n"
+curl -s -L $GIT_CORE --fail --silent --show-error | tar xz --wildcards "*/templates/*" --strip-components 2
