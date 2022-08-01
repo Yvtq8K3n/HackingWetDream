@@ -58,7 +58,7 @@ sed -i "s/API_CENSYSIOID/$API_CENSYSIOID/g" templates/recon_ng.rc
 sed -i "s/API_CENSYSIOSECRET/$API_CENSYSIOSECRET/g" templates/recon_ng.rc
 sed -i "s/API_SHODAN/$API_SHODAN/g" templates/recon_ng.rc
 sed -i "s/API_SPYSE/$API_SPYSE/g" templates/recon_ng.rc
-tmux send-keys -t recon.1 "recon-ng -r templates/recon_ng.rc" C-m
+tmux send-keys -t recon.1 "recon-ng -r templates/recon-ng.rc" C-m
 
 #######################################################################
 ##commands #################################################
