@@ -27,7 +27,7 @@ eval $(parse_yaml ~/config.yaml "API_")
 ### Create tmux sessions ##############################################
 #######################################################################
 TARGET_DOMAIN=$1
-DIR_PATH=$(pwd)
+DIR_PATH=${pwd}
 
 #Creates tmux session and splits by 3
 tmux new -d -s reconnaince -n recon
