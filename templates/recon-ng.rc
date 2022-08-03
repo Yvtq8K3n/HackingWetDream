@@ -1,0 +1,143 @@
+workspaces add DOMAIN
+
+/////////////////////////////////////////////////////////////////////////////
+/// Install modules /////////////////////////////////////////////////////////  
+/////////////////////////////////////////////////////////////////////////////
+marketplace install recon/domains-hosts/binaryedge
+marketplace install recon/domains-hosts/bing_domain_api
+marketplace install recon/domains-hosts/bing_domain_web
+marketplace install recon/domains-hosts/builtwith
+marketplace install recon/domains-hosts/censys_domain
+marketplace install recon/domains-hosts/certificate_transparency
+marketplace install recon/domains-hosts/google_site_web
+marketplace install recon/domains-hosts/hackertarget
+marketplace install recon/domains-hosts/mx_spf_ip
+marketplace install recon/domains-hosts/netcraft
+marketplace install recon/domains-hosts/shodan_hostname
+marketplace install recon/domains-hosts/spyse_subdomains 
+marketplace install recon/domains-hosts/ssl_san
+marketplace install recon/domains-hosts/threatcrowd
+marketplace install recon/domains-hosts/threatminer
+
+/////////////////////////////////////////////////////////////////////////////
+/// Set API Keys  ///////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////
+keys add binaryedge_api BINARYEDGE
+keys add bing_api BING
+keys add builtwith_api BUILTWITH
+keys add censysio_id CENSYSIOID
+keys add censysio_secret CENSYSIOSECRET
+keys add shodan_api SHODAN
+keys add spyse_api SPYSE
+
+/////////////////////////////////////////////////////////////////////////////
+/// Run modules //////////////////////////////////////////////////////////////         
+/////////////////////////////////////////////////////////////////////////////
+modules load recon/domains-hosts/binaryedge
+options set SOURCE DOMAIN
+run
+back
+
+modules load recon/domains-hosts/bing_domain_api
+options set SOURCE DOMAIN
+run
+back
+
+modules load recon/domains-hosts/bing_domain_web
+options set SOURCE DOMAIN
+run
+back
+
+modules load recon/domains-hosts/builtwith
+options set SOURCE DOMAIN
+run
+back
+
+modules load recon/domains-hosts/censys_domain
+options set SOURCE DOMAIN
+run
+back
+
+modules load recon/domains-hosts/certificate_transparency
+options set SOURCE DOMAIN
+run
+back
+
+modules load recon/domains-hosts/google_site_web
+options set SOURCE DOMAIN
+run
+back
+
+modules load recon/domains-hosts/hackertarget
+options set SOURCE DOMAIN
+run
+back
+
+modules load recon/domains-hosts/mx_spf_ip 
+options set SOURCE DOMAIN
+run
+back
+
+modules load recon/domains-hosts/netcraft 
+options set SOURCE DOMAIN
+run
+back
+
+modules load recon/domains-hosts/shodan_hostname 
+options set SOURCE DOMAIN
+run
+back
+
+modules load recon/domains-hosts/spyse_subdomains 
+options set SOURCE DOMAIN
+run
+back
+
+modules load recon/domains-hosts/ssl_san
+options set SOURCE DOMAIN
+run
+back
+
+modules load recon/domains-hosts/threatcrowd
+options set SOURCE DOMAIN
+run
+back
+
+modules load recon/domains-hosts/threatminer
+options set SOURCE DOMAIN
+run
+back
+
+/////////////////////////////////////////////////////////////////////////////
+/// Exporting  //////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////
+marketplace install reporting/csv      
+marketplace install reporting/html     
+marketplace install reporting/json     
+marketplace install reporting/list     
+marketplace install reporting/xlsx     
+marketplace install reporting/xml 
+
+back
+modules load reporting/csv
+run
+
+back
+modules load reporting/html
+run
+
+back
+modules load reporting/json
+run
+
+back
+modules load reporting/list
+run
+
+back
+modules load reporting/xlsx
+run
+
+back
+modules load reporting/xml
+run
