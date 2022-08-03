@@ -27,6 +27,7 @@ eval $(parse_yaml ~/config.yaml "API_")
 ### Create tmux sessions ##############################################
 #######################################################################
 TARGET_DOMAIN=$1
+DIR_PATH=$(pwd)
 
 #Creates tmux session and splits by 3
 tmux new -d -s reconnaince -n recon
@@ -59,6 +60,7 @@ sed -i "s/API_CENSYSIOID/$API_CENSYSIOID/g" /tmp/recon-ng.rc
 sed -i "s/API_CENSYSIOSECRET/$API_CENSYSIOSECRET/g" /tmp/recon-ng.rc
 sed -i "s/API_SHODAN/$API_SHODAN/g" /tmp/recon-ng.rc
 sed -i "s/API_SPYSE/$API_SPYSE/g" /tmp/recon-ng.rc
+sed -i "s/DIR_PATH/$DIR_PATH/g" /tmp/recon-ng.rc
 tmux send-keys -t recon.1 "recon-ng -r /tmp/recon-ng.rc" C-m
 
 #######################################################################

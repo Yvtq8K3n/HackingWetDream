@@ -111,33 +111,20 @@ back
 /////////////////////////////////////////////////////////////////////////////
 /// Exporting  //////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////
-marketplace install reporting/csv      
 marketplace install reporting/html     
-marketplace install reporting/json     
 marketplace install reporting/list     
-marketplace install reporting/xlsx     
-marketplace install reporting/xml 
-
-back
-modules load reporting/csv
-run
 
 back
 modules load reporting/html
-run
-
-back
-modules load reporting/json
+options set CREATOR MYSELF
+options set CUSTOMER DOMAIN
+options set FILENAME DIR_PATH/recon-ng.html
 run
 
 back
 modules load reporting/list
+options set TABLE hosts
+options set COLUMN host
+options set FILENAME DIR_PATH/recon-ng.txt 
 run
 
-back
-modules load reporting/xlsx
-run
-
-back
-modules load reporting/xml
-run
