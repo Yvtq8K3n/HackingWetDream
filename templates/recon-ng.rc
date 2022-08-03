@@ -22,13 +22,13 @@ marketplace install recon/domains-hosts/threatminer
 /////////////////////////////////////////////////////////////////////////////
 /// Set API Keys  ///////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////
-keys add binaryedge_api BINARYEDGE
-keys add bing_api BING
-keys add builtwith_api BUILTWITH
-keys add censysio_id CENSYSIOID
-keys add censysio_secret CENSYSIOSECRET
-keys add shodan_api SHODAN
-keys add spyse_api SPYSE
+keys add binaryedge_api API_BINARYEDGE
+keys add bing_api API_BING
+keys add builtwith_api API_BUILTWITH
+keys add censysio_id API_CENSYSIOID
+keys add censysio_secret API_CENSYSIOSECRET
+keys add shodan_api API_SHODAN
+keys add spyse_api API_SPYSE
 
 /////////////////////////////////////////////////////////////////////////////
 /// Run modules //////////////////////////////////////////////////////////////         
