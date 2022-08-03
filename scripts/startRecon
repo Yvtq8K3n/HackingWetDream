@@ -50,15 +50,16 @@ tmux list-panes -F '#{session_name}:#{window_index}.#{pane_index}' -f reconnainc
 #######################################################################
 ### Recon-ng commands #################################################
 #######################################################################
-sed "s/DOMAIN/$TARGET_DOMAIN/g" ~/templates/recon-ng.rc > templates/recon-ng.rc
-sed -i "s/API_BINARYEDGE/$API_BINARYEDGE/g" templates/recon-ng.rc
-sed -i "s/API_BING/$API_BING/g" templates/recon-ng.rc
-sed -i "s/API_BUILTWITH/$API_BUILTWITH/g" templates/recon-ng.rc
-sed -i "s/API_CENSYSIOID/$API_CENSYSIOID/g" templates/recon-ng.rc
-sed -i "s/API_CENSYSIOSECRET/$API_CENSYSIOSECRET/g" templates/recon-ng.rc
-sed -i "s/API_SHODAN/$API_SHODAN/g" templates/recon-ng.rc
-sed -i "s/API_SPYSE/$API_SPYSE/g" templates/recon-ng.rc
-tmux send-keys -t recon.1 "recon-ng -r templates/recon-ng.rc" C-m
+
+sed "s/DOMAIN/$TARGET_DOMAIN/g" ~/templates/recon-ng.rc > /tmp/recon-ng.rc
+sed -i "s/API_BINARYEDGE/$API_BINARYEDGE/g" /tmp/recon-ng.rc
+sed -i "s/API_BING/$API_BING/g" /tmp/recon-ng.rc
+sed -i "s/API_BUILTWITH/$API_BUILTWITH/g" /tmp/recon-ng.rc
+sed -i "s/API_CENSYSIOID/$API_CENSYSIOID/g" /tmp/recon-ng.rc
+sed -i "s/API_CENSYSIOSECRET/$API_CENSYSIOSECRET/g" /tmp/recon-ng.rc
+sed -i "s/API_SHODAN/$API_SHODAN/g" /tmp/recon-ng.rc
+sed -i "s/API_SPYSE/$API_SPYSE/g" /tmp/recon-ng.rc
+tmux send-keys -t recon.1 "recon-ng -r /tmp/recon-ng.rc" C-m
 
 #######################################################################
 ##commands #################################################
