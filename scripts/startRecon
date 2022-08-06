@@ -51,7 +51,6 @@ tmux list-panes -F '#{session_name}:#{window_index}.#{pane_index}' -f reconnainc
 #######################################################################
 ### Recon-ng commands #################################################
 #######################################################################
-
 sed "s/DOMAIN/$TARGET_DOMAIN/g" ~/templates/recon-ng.rc > /tmp/recon-ng.rc
 sed -i "s/API_BINARYEDGE/$API_BINARYEDGE/g" /tmp/recon-ng.rc
 sed -i "s/API_BING/$API_BING/g" /tmp/recon-ng.rc
@@ -64,7 +63,6 @@ sed -i "s/DIR_PATH/$DIR_PATH/g" /tmp/recon-ng.rc
 tmux send-keys -t recon.1 "recon-ng -r /tmp/recon-ng.rc" C-m
 
 #######################################################################
-##commands #################################################
+### theHarvester commands #############################################
 #######################################################################
-
-
+tmux send-keys -t recon.2 "theharvester -h" C-m
