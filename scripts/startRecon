@@ -68,6 +68,11 @@ tmux send-keys -t recon.1 "recon-ng -r /tmp/recon-ng.rc" C-m
 #######################################################################
 cp ~/templates/api-keys.yaml /tmp/api-keys.yaml
 
+#Replaces the API_KEY to its corresponding value
+for key in "${!API_@}"; do
+   sed -i "s/$key/${!key}/g" /tmp/api-keys.yaml
+done
+
 tmux send-keys -t recon.2 "theharvester -d $TARGET_DOMAIN -b all" C-m
 
 
