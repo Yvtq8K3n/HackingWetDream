@@ -12,7 +12,7 @@ then
     ln -s ~/tools/TheHarvester/theHarvester.py theharvester
 
     #Since theHarvester uses hardcoded paths, i just changed it to point to the right direction, h5! :)
-    sed -i "s@\/etc\/theHarvester\/api-keys.yaml/@\/tmp\/theharvester.yaml@g" ~/tools/TheHarvester/theHarvester/lib/core.py
+    sed -i "s@\/etc\/theHarvester\/api-keys.yaml@\/tmp\/theharvester.yaml@g" ~/tools/TheHarvester/theHarvester/lib/core.py
     sed -i "s@\/etc\/theHarvester\/@$HOME/tools/TheHarvester\/@g" ~/tools/TheHarvester/theHarvester/lib/core.py
 
 fi
