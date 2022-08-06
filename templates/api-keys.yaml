@@ -1,0 +1,43 @@
+apikeys:
+  binaryedge:
+    key: API_BINARYEDGE
+
+  bing:
+    key: API_BING
+
+  censys:
+    id: API_CENSYSIOID
+    secret: API_CENSYSIOSECRET
+
+  fullhunt:
+    key: API_FULLHUNT
+
+  github:
+    key: API_GITHUB
+
+  hunter:
+    key: API_HUNTER
+
+  intelx:
+    key: API_INTELX
+
+  pentestTools:
+    key: API_PENTESTTOOLS
+
+  projectDiscovery:
+    key: API_PROJECTDISCOVERY
+
+  rocketreach:
+    key: API_ROCKETTREACH
+
+  securityTrails:
+    key: API_SECURITYTRAILS
+
+  shodan:
+    key: API_SHODAN
+
+  virustotal:
+    key: API_VIRUSTOTAL
+
+  zoomeye:
+    key: API_ZOOMEYE
