@@ -22,7 +22,8 @@ printf " -Retreiving vpn script for tmux from: ${TMUX_VPN}\n"
 printf "#Installing clipboard utils for smooth tmux experience\n\n"
 sudo apt -y install xclip
 
-printf " -Retreiving all scripts from GIT: ${GIT_CORE}\n"
+printf "\n#Retreiving all scripts from GIT: ${GIT_CORE}\n"
+cd ~/scripts
 curl -s -L $GIT_CORE --fail --silent --show-error | tar xz --wildcards "*/scripts/*" --strip-components 2
 printf " -Granting executable permission to all scripts\n"
 chmod +x *
